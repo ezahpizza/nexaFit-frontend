@@ -1,12 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Header from '../components/Header';
+import Navbar from '../components/Navbar';
+import MainContent from '../components/MainContent';
+import SecondaryContent from '../components/SecondaryContent';
+import Footer from '../components/Footer';
 
 const Index = () => {
+  useEffect(() => {
+    // Add animation class to elements when they are in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-nexafit-background">
+      <Header />
+      <Navbar />
+      
+      <section className="opacity-0">
+        <MainContent />
+      </section>
+      
+      <section className="opacity-0">
+        <SecondaryContent />
+      </section>
+      
+      <Footer />
     </div>
   );
 };

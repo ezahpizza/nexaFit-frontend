@@ -1,6 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -33,22 +36,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +66,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,6 +75,81 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-nexafit-background text-foreground font-sans antialiased;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .nexafit-container {
+    @apply px-4 md:px-8 lg:px-16 max-w-7xl mx-auto;
+  }
+
+  .nexafit-button {
+    @apply px-6 py-2 rounded-md font-medium transition-all duration-300 ease-in-out;
+  }
+
+  .nexafit-button-primary {
+    @apply nexafit-button bg-nexafit-navbar text-white hover:bg-opacity-90;
+  }
+
+  .nexafit-button-outline {
+    @apply nexafit-button border border-nexafit-navbar text-nexafit-navbar hover:bg-nexafit-navbar hover:bg-opacity-10;
+  }
+
+  .nexafit-card {
+    @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-lg;
+  }
+}
+
+.hero-image {
+  transition: height 1.2s ease-out;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hero-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-dropdown {
+  transform-origin: top center;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.navbar-dropdown.open {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.stat-card {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-carousel {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+}
+
+.glass-effect {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
