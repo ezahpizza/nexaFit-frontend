@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import MainContent from '../components/MainContent';
 import SecondaryContent from '../components/SecondaryContent';
 import Footer from '../components/Footer';
+import BackgroundElements from '../components/BackgroundElements';
 
 const Index = () => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-nexafit-background text-black">
+      <BackgroundElements />
       <Header />
       <Navbar />
       
