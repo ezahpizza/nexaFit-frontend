@@ -26,7 +26,10 @@ const Navbar = () => {
 
   return (
     <div className="relative z-50" ref={dropdownRef}>
-      <div className="flex justify-end pr-4">
+      {/* Horizontal bar with sample text and hamburger */}
+      <div className="flex justify-between items-center px-6 py-3">
+        <div className="text-xl font-medium">Sample Text 1</div>
+        <div className="text-xl font-medium">Sample Text 2</div>
         <button 
           onClick={toggleDropdown}
           className="p-2 text-3xl focus:outline-none"
@@ -36,70 +39,43 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Full width navbar that appears on hamburger click */}
       <div 
         className={`
-          absolute right-0 mt-2 w-64 bg-nexafit-navbar rounded-lg shadow-lg
-          transform transition-all duration-300 origin-top
-          ${isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'}
+          absolute w-full bg-nexafit-navbar rounded-xl py-3 px-6 
+          transition-all duration-300 shadow-lg
+          ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
         `}
       >
-        <div className="py-2 px-4">
-          <Link 
-            to="/calorie-tracker" 
-            className="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors"
-          >
-            Calorie Tracker
-          </Link>
-          <Link 
-            to="/meal-planner" 
-            className="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors"
-          >
-            Meal Planner
-          </Link>
-          <div className="border-t border-white/20 my-2"></div>
-          <Link 
-            to="/sign-in" 
-            className="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors"
-          >
-            Sign In
-          </Link>
-          <Link 
-            to="/sign-up" 
-            className="block py-3 px-4 text-white hover:bg-white/10 rounded-md transition-colors"
-          >
-            Sign Up
-          </Link>
-        </div>
-      </div>
-
-      <div className="w-full bg-nexafit-navbar rounded-xl mt-4 py-3 px-6 flex justify-between items-center">
-        <div className="flex space-x-8">
-          <Link 
-            to="/calorie-tracker" 
-            className="text-white hover:text-white/80 transition-colors"
-          >
-            Calorie Tracker
-          </Link>
-          <Link 
-            to="/meal-planner" 
-            className="text-white hover:text-white/80 transition-colors"
-          >
-            Meal Planner
-          </Link>
-        </div>
-        <div className="flex space-x-6">
-          <Link 
-            to="/sign-in" 
-            className="text-white hover:text-white/80 transition-colors"
-          >
-            Sign in
-          </Link>
-          <Link 
-            to="/sign-up" 
-            className="text-white hover:text-white/80 transition-colors font-medium"
-          >
-            Sign up
-          </Link>
+        <div className="flex justify-between items-center">
+          <div className="flex space-x-8">
+            <Link 
+              to="/calorie-tracker" 
+              className="text-white hover:text-white/80 transition-colors"
+            >
+              Calorie Tracker
+            </Link>
+            <Link 
+              to="/meal-planner" 
+              className="text-white hover:text-white/80 transition-colors"
+            >
+              Meal Planner
+            </Link>
+          </div>
+          <div className="flex space-x-6">
+            <Link 
+              to="/sign-in" 
+              className="text-white hover:text-white/80 transition-colors"
+            >
+              Sign in
+            </Link>
+            <Link 
+              to="/sign-up" 
+              className="text-white hover:text-white/80 transition-colors font-medium"
+            >
+              Sign up
+            </Link>
+          </div>
         </div>
       </div>
     </div>

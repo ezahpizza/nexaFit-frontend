@@ -18,7 +18,7 @@ const BackgroundElements = () => {
       
       {/* Middle-left footer color rectangle */}
       <div 
-        className="absolute top-1/2 -left-20 w-64 h-64 bg-nexafit-footer opacity-15 rounded-3xl"
+        className="absolute top-1/2 -left-20 w-64 h-64 bg-nexafit-footer opacity-20 rounded-3xl"
         style={{ transform: 'rotate(15deg)' }}
       ></div>
       
