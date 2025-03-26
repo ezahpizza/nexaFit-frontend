@@ -13,6 +13,7 @@ const Index = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
+          entry.target.classList.remove('opacity-0');
         }
       });
     }, { threshold: 0.1 });
@@ -28,15 +29,15 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-nexafit-background">
+    <div className="min-h-screen bg-nexafit-background text-black">
       <Header />
       <Navbar />
       
-      <section className="opacity-0">
+      <section className="opacity-0 transition-opacity duration-500">
         <MainContent />
       </section>
       
-      <section className="opacity-0">
+      <section className="opacity-0 transition-opacity duration-500">
         <SecondaryContent />
       </section>
       

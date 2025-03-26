@@ -75,7 +75,7 @@
   }
 
   body {
-    @apply bg-nexafit-background text-foreground font-sans antialiased;
+    @apply bg-nexafit-background text-black font-sans antialiased;
   }
 
   html {
