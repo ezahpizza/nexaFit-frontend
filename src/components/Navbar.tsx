@@ -42,9 +42,12 @@ const Navbar = () => {
       {/* Full width navbar that appears on hamburger click */}
       <div 
         className={`
-          absolute w-full bg-nexafit-navbar rounded-xl py-3 px-6 
-          transition-all duration-300 shadow-lg
-          ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
+          absolute w-full bg-nexafit-navbar rounded-xl py-4 px-8
+          transition-all duration-300 ease-in-out shadow-lg
+          transform origin-top
+          ${isOpen 
+            ? 'opacity-100 visible translate-y-0' 
+            : 'opacity-0 invisible -translate-y-4'}
         `}
       >
         <div className="flex justify-between items-center">
