@@ -1,20 +1,46 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFlushing, setIsFlushing] = useState(false);
+  const [isAnimatingClose, setIsAnimatingClose] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    if (!isOpen) {
+      // Opening nav
+      setIsFlushing(true);
+      setTimeout(() => {
+        setIsOpen(true);
+        setIsFlushing(false);
+      }, 300);
+    } else {
+      // Closing nav
+      setIsClosing(true);
+      setIsAnimatingClose(true);
+      setIsOpen(false);
+  
+      // Delay background color removal to match dropdown animation
+      setTimeout(() => {
+        setIsAnimatingClose(false);
+        setIsClosing(false);
+      }, 500); // Matches the dropdown transition duration
+    }
   };
-
+  
   // Close the dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsClosing(true);
+        setIsAnimatingClose(true);
         setIsOpen(false);
+        setTimeout(() => {
+          setIsAnimatingClose(false);
+          setIsClosing(false);
+        }, 500);
       }
     };
 
@@ -25,60 +51,73 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="relative z-50" ref={dropdownRef}>
-      {/* Horizontal bar with sample text and hamburger */}
-      <div className="flex justify-between items-center px-6 py-3">
-        <div className="text-xl font-medium">Sample Text 1</div>
-        <div className="text-xl font-medium">Sample Text 2</div>
-        <button 
-          onClick={toggleDropdown}
-          className="p-2 text-3xl focus:outline-none"
-          aria-label="Toggle navigation menu"
+    <div className="relative z-50 py-2" ref={dropdownRef}> 
+    {/* /sm:mt-6 */}
+      {/* Container with padding applied to both sections */}
+      <div className="px-4">
+        {/* Top bar */}
+        <div
+          className={`
+            flex justify-between items-center py-2 px-3
+            transition-colors duration-500 ease-in-out
+            ${isFlushing || isOpen || isAnimatingClose ? 'bg-nexafit-accent text-white' : ''}
+            ${isOpen || isAnimatingClose ? 'rounded-t-xl' : 'rounded-xl'}
+          `}
         >
-          ≡
-        </button>
-      </div>
+          <div className="text-sm sm:text-xl font-medium truncate hidden sm:block">Take charge. <br/> Your way</div>
+          <div className="text-sm sm:text-xl font-medium truncate hidden sm:block">Since 2025</div>
+          <button
+            onClick={toggleDropdown}
+            className="p-1 sm:p-2 text-2xl sm:text-3xl focus:outline-none"
+            aria-label="Toggle navigation menu"
+          >
+            ≡
+          </button>
+        </div>
 
-      {/* Full width navbar that appears on hamburger click */}
-      <div 
-        className={`
-          absolute w-full bg-nexafit-navbar rounded-xl py-4 px-8
-          transition-all duration-300 ease-in-out shadow-lg
-          transform origin-top
-          ${isOpen 
-            ? 'opacity-100 visible translate-y-0' 
-            : 'opacity-0 invisible -translate-y-4'}
-        `}
-      >
-        <div className="flex justify-between items-center">
-          <div className="flex space-x-8">
-            <Link 
-              to="/calorie-tracker" 
-              className="text-white hover:text-white/80 transition-colors"
-            >
-              Calorie Tracker
-            </Link>
-            <Link 
-              to="/meal-planner" 
-              className="text-white hover:text-white/80 transition-colors"
-            >
-              Meal Planner
-            </Link>
-          </div>
-          <div className="flex space-x-6">
-            <Link 
-              to="/sign-in" 
-              className="text-white hover:text-white/80 transition-colors"
-            >
-              Sign in
-            </Link>
-            <Link 
-              to="/sign-up" 
-              className="text-white hover:text-white/80 transition-colors font-medium"
-            >
-              Sign up
-            </Link>
-          </div>
+        {/* Dropdown */}
+        <div
+          className={`
+            bg-nexafit-accent
+            ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
+            py-4 px-4 sm:px-8
+            transition-all duration-500 ease-in-out shadow-lg
+            transform origin-top
+            ${isOpen 
+              ? 'opacity-100 visible translate-y-0' 
+              : 'opacity-0 invisible -translate-y-6'}
+          `}
+        >
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+                <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
+                  <Link 
+                    to="/calorie-tracker" 
+                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                  >
+                    Calorie Tracker
+                  </Link>
+                  <Link 
+                    to="/meal-planner" 
+                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                  >
+                    Meal Planner
+                  </Link>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
+                  <Link 
+                    to="/sign-in" 
+                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                  >
+                    Sign in
+                  </Link>
+                  <Link 
+                    to="/sign-up" 
+                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                  >
+                    Sign up
+                  </Link>
+                </div>
+            </div>
         </div>
       </div>
     </div>

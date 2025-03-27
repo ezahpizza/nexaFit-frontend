@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="mx-4 mb-4 mt-16">
-      <div className="bg-nexafit-footer rounded-xl text-white p-8">
+    <footer className="relative z-50 mx-4 mb-4 mt-16">
+      <div className="bg-nexafit-footer rounded-xl text-white p-8" >
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div className="mb-6 md:mb-0">
             <h2 className="text-3xl font-bold">nexaFit</h2>

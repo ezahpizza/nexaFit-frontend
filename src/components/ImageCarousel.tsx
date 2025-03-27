@@ -1,5 +1,4 @@
-
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 interface ImageCarouselProps {
   images: string[];
@@ -11,7 +10,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     let newIndex = index;
     if (index < 0) newIndex = images.length - 1;
     if (index >= images.length) newIndex = 0;
@@ -24,7 +23,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         behavior: 'smooth'
       });
     }
-  };
+  }, [images.length]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -36,7 +35,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     e.preventDefault();
     
     const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2; // Multiply to make the swipe more sensitive
+    const walk = (x - startX) * 2;
     
     if (carouselRef.current) {
       carouselRef.current.scrollLeft = (carouselRef.current.scrollLeft || 0) - walk;
@@ -52,21 +51,25 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     }
   };
 
-  // Autoplay functionality
   useEffect(() => {
     const interval = setInterval(() => {
       goToSlide(currentIndex + 1);
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, goToSlide]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative z-50 w-full">
       <div 
         ref={carouselRef}
-        className="flex overflow-x-auto scrollbar-none transition-all snap-x snap-mandatory"
-        style={{ scrollBehavior: 'smooth' }}
+        className="flex overflow-x-hidden scrollbar-none transition-all snap-x snap-mandatory"
+        style={{ 
+          scrollBehavior: 'smooth',
+          WebkitOverflowScrolling: 'touch',
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none'
+        }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -75,12 +78,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="min-w-full h-64 flex-shrink-0 snap-start"
+            className="min-w-full h-72 flex-shrink-0 snap-start"
           >
             <img 
               src={image} 
               alt={`Carousel image ${index}`} 
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-4/5 object-cover rounded-lg"
             />
           </div>
         ))}

@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
@@ -30,7 +29,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-nexafit-background text-black">
+    <div className="relative min-h-screen bg-nexafit-background text-black overflow-hidden">
       <BackgroundElements />
       <Header />
       <Navbar />

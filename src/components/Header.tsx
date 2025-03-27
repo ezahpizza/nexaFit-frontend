@@ -31,18 +31,25 @@ const Header = () => {
         className={`
           relative w-full rounded-3xl overflow-hidden shadow-lg 
           transition-all duration-1000 ease-out
-          ${isShrinked ? 'h-[35vh]' : 'h-[90vh]'}
+          ${isShrinked ? 'h-[35vh]' : 'h-[95vh]'}
         `}
       >
         <img 
-          src="/lovable-uploads/c7aeaaf4-e3eb-4980-ba51-1abbb5459420.png" 
-          alt="NexaFit Hero" 
+          src="/loader-test.webp" 
+          alt="NexaFit header" 
           className="w-full h-full object-cover object-center"
         />
         
-        <div className="absolute left-8 top-8 text-white text-4xl font-bold z-10">
-          <h1 className="tracking-tight">nexaFit</h1>
+        <div
+          className={`
+            absolute left-14 bottom-14 text-white text-4xl font-bold z-10
+            origin-bottom-left transition-transform duration-700 ease-in-out
+            ${isShrinked ? '-rotate-90 translate-y-8' : ''}
+          `}
+        >
+            <h1 className="tracking-tight">nexaFit</h1>
         </div>
+
         
         <div 
           className={`
@@ -51,9 +58,7 @@ const Header = () => {
             transition-opacity duration-500 ${isShrinked ? 'opacity-100' : 'opacity-0'}
           `}
         >
-          <div className="text-xl font-medium">Sample Text</div>
-          <div className="text-xl font-medium">Sample Text</div>
-          <div className="text-3xl cursor-pointer">≡</div>
+
         </div>
       </div>
     </header>
