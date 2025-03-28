@@ -35,7 +35,7 @@ const Header = () => {
         `}
       >
         <img 
-          src="/loader-test.webp" 
+          src="/header-image.webp" 
           alt="NexaFit header" 
           className="w-full h-full object-cover object-center"
         />
