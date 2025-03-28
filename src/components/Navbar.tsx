@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { SignInButton, SignUpButton } from '@clerk/clerk-react';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -104,18 +106,16 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
-                  <Link 
-                    to="/sign-in" 
-                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
-                  >
-                    Sign in
-                  </Link>
-                  <Link 
-                    to="/sign-up" 
-                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
-                  >
-                    Sign up
-                  </Link>
+                    <SignInButton mode="modal">
+                        <button className="px-6 py-2 text-gray-600 hover:text-gray-800">
+                            Sign in
+                        </button>
+                    </SignInButton>
+                    <SignUpButton mode="modal">
+                        <button className="px-6 py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
+                            Sign up
+                        </button>
+                    </SignUpButton>
                 </div>
             </div>
         </div>
