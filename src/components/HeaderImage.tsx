@@ -3,29 +3,20 @@ import { useEffect, useState } from 'react';
 
 interface HeaderImageProps {
   shrinkToHeight?: string;
+  slideUp?: boolean;
 }
 
-const HeaderImage = ({ shrinkToHeight = '35vh' }: HeaderImageProps) => {
-  const [isShrinked, setIsShrinked] = useState(false);
+const HeaderImage = ({ shrinkToHeight = '35vh', slideUp = false }: HeaderImageProps) => {
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Auto-shrink the hero after a delay (for initial animation)
+    // Show the image after a small delay for animation purposes
     const timer = setTimeout(() => {
-      setIsShrinked(true);
-    }, 1000);
-    
-    // Listen to scroll to determine if we should shrink the hero
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsShrinked(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
+      setIsVisible(true);
+    }, 300);
     
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -33,8 +24,9 @@ const HeaderImage = ({ shrinkToHeight = '35vh' }: HeaderImageProps) => {
     <div 
       className={`
         relative w-full rounded-3xl overflow-hidden shadow-lg 
-        transition-all duration-1000 ease-out
-        ${isShrinked ? shrinkToHeight : 'h-[95vh]'}
+        ${shrinkToHeight}
+        ${slideUp ? 'transform transition-all duration-700 ease-out' : ''}
+        ${slideUp && isVisible ? 'translate-y-0 opacity-100' : slideUp ? 'translate-y-12 opacity-0' : ''}
       `}
     >
       <img 
@@ -46,8 +38,7 @@ const HeaderImage = ({ shrinkToHeight = '35vh' }: HeaderImageProps) => {
       <div
         className={`
           absolute left-14 bottom-14 text-white text-4xl font-bold z-10
-          origin-bottom-left transition-transform duration-700 ease-in-out
-          ${isShrinked ? '-rotate-90 translate-y-8' : ''}
+          origin-bottom-left 
         `}
       >
         <h1 className="tracking-tight">nexaFit</h1>
