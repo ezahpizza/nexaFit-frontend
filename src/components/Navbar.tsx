@@ -82,7 +82,7 @@ const Navbar = () => {
           className={`
             bg-nexafit-accent
             ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
-            py-2py-4 px-6 sm:px-10
+            md:py-4 py-2 px-6 sm:px-10
             transition-all duration-500 ease-in-out shadow-lg
             transform origin-top
             ${isOpen 
