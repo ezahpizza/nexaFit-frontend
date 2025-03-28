@@ -41,8 +41,6 @@ const App = () => (
                 <NotFound />
               </ProtectedRoute>
             } />
-            <Route path="/sign-in" element={<NotFound />} />
-            <Route path="/sign-up" element={<NotFound />} />
             <Route path="/contact" element={<NotFound />} />
             <Route path="/about" element={<NotFound />} />
             <Route path="/terms" element={<NotFound />} />
