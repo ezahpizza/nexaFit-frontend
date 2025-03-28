@@ -41,7 +41,7 @@ const Home = () => {
       </section>
       
       <section className={`mt-14 px-4 transition-opacity duration-500 ease-in-out delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <h2 className="text-2xl font-medium mb-4">Featured Content</h2>
+        <h2 className="text-2xl font-medium mb-4">Latest insights from the world of nutrition and health</h2>
         <ImageCarousel 
           images={[
             "/carousel-img-1.webp",

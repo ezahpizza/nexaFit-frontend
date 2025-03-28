@@ -63,7 +63,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     <div className="relative z-50 w-full">
       <div 
         ref={carouselRef}
-        className="flex overflow-x-hidden scrollbar-none transition-all snap-x snap-mandatory"
+        className="flex overflow-x-hidden scrollbar-none transition-all snap-x snap-mandatory aspect-[3/1] w-full"
         style={{ 
           scrollBehavior: 'smooth',
           WebkitOverflowScrolling: 'touch',
@@ -78,12 +78,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="max-w-216 h-72 flex-shrink-0 snap-start"
+            className="max-w-full h-full flex-shrink-0 snap-start"
           >
             <img 
               src={image} 
               alt={`Carousel image ${index}`} 
-              className="w-full h-4/5 object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-lg"
             />
           </div>
         ))}
