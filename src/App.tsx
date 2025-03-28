@@ -6,7 +6,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 const CLERK_PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -20,8 +22,21 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/calorie-tracker" element={<NotFound />} />
-            <Route path="/meal-planner" element={<NotFound />} />
+            <Route path="/home" element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            } />
+            <Route path="/calorie-tracker" element={
+              <ProtectedRoute>
+                <NotFound />
+              </ProtectedRoute>
+            } />
+            <Route path="/meal-planner" element={
+              <ProtectedRoute>
+                <NotFound />
+              </ProtectedRoute>
+            } />
             <Route path="/sign-in" element={<NotFound />} />
             <Route path="/sign-up" element={<NotFound />} />
             <Route path="/contact" element={<NotFound />} />

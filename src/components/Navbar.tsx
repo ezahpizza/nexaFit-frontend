@@ -1,7 +1,7 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SignInButton, SignUpButton } from '@clerk/clerk-react';
-
+import { UserButton } from '@clerk/clerk-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,6 @@ const Navbar = () => {
 
   return (
     <div className="relative z-50 py-2" ref={dropdownRef}> 
-    {/* /sm:mt-6 */}
       {/* Container with padding applied to both sections */}
       <div className="px-4">
         {/* Top bar */}
@@ -81,8 +80,7 @@ const Navbar = () => {
         <div
           className={`
             bg-nexafit-accent
-            ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
-            py-4 px-4 sm:px-8
+            ${isOpen || isAnimatingClose ? 'rounded-b-xl px-8 py-6' : 'rounded-xl'}
             transition-all duration-500 ease-in-out shadow-lg
             transform origin-top
             ${isOpen 
@@ -90,34 +88,32 @@ const Navbar = () => {
               : 'opacity-0 invisible -translate-y-6'}
           `}
         >
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-                <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
-                  <Link 
-                    to="/calorie-tracker" 
-                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
-                  >
-                    Calorie Tracker
-                  </Link>
-                  <Link 
-                    to="/meal-planner" 
-                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
-                  >
-                    Meal Planner
-                  </Link>
-                </div>
-                <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
-                    <SignInButton mode="modal">
-                        <button className="px-6 py-2 text-gray-600 hover:text-gray-800">
-                            Sign in
-                        </button>
-                    </SignInButton>
-                    <SignUpButton mode="modal">
-                        <button className="px-6 py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
-                            Sign up
-                        </button>
-                    </SignUpButton>
-                </div>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+            <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
+              <Link 
+                to="/calorie-tracker" 
+                className="text-white text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+              >
+                Calorie Tracker
+              </Link>
+              <Link 
+                to="/meal-planner" 
+                className="text-white text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+              >
+                Meal Planner
+              </Link>
             </div>
+            <div className="flex sm:ml-auto">
+              <UserButton 
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    userButtonAvatarBox: "w-10 h-10"
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
