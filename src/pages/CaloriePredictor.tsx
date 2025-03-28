@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useUser } from '@clerk/clerk-react';
 import axios from 'axios';
-import Navbar_home from '../components/Navbar-home';
+import Navbar_global from '../components/Navbar-global';
 import Footer from '../components/Footer';
 import BackgroundElements from '../components/BackgroundElements';
 import CaloriePredictionForm from '../components/CaloriePredictionForm';
@@ -68,7 +68,7 @@ const CaloriePredictor = () => {
   return (
     <div className="relative min-h-screen bg-nexafit-background text-black overflow-hidden">
       <BackgroundElements />
-      <Navbar_home />
+      <Navbar_global />
       
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-center">Workout Calorie Calculator</h1>
