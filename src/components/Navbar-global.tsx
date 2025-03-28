@@ -96,6 +96,12 @@ const Navbar_global = () => {
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
                     <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
                         <Link 
+                            to="/home" 
+                            className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                        >
+                            Home
+                        </Link>
+                        <Link 
                             to="/calorie-tracker" 
                             className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
                         >
@@ -107,8 +113,6 @@ const Navbar_global = () => {
                         >
                             Meal Planner
                         </Link>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
                         <Link 
                             to="/contact" 
                             className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
@@ -121,6 +125,8 @@ const Navbar_global = () => {
                         >
                             About Us
                         </Link>
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
                         <UserButton afterSignOutUrl="/" />
                     </div>
                 </div>

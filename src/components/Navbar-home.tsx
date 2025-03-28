@@ -95,21 +95,19 @@ const Navbar_home = () => {
             >
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
                     <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
-                    <Link 
-                        to="/calorie-tracker" 
-                        className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
-                    >
-                        Calorie Tracker
-                    </Link>
-                    <Link 
-                        to="/meal-planner" 
-                        className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
-                    >
-                        Meal Planner
-                    </Link>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
-                    <Link 
+                        <Link 
+                            to="/calorie-tracker" 
+                            className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                        >
+                            Calorie Tracker
+                        </Link>
+                        <Link 
+                            to="/meal-planner" 
+                            className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                        >
+                            Meal Planner
+                        </Link>
+                        <Link 
                             to="/contact" 
                             className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
                         >
@@ -121,6 +119,9 @@ const Navbar_home = () => {
                         >
                             About Us
                         </Link>
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
+                        
                         <UserButton afterSignOutUrl="/" />
                     </div>
                 </div>

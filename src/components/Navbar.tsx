@@ -109,24 +109,31 @@ const Navbar = () => {
                   >
                     Meal Planner
                   </Link>
+                  <Link 
+                        to="/contact" 
+                        className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                    >
+                        Contact Us
+                    </Link>
+                    <Link 
+                        to="/about" 
+                        className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                    >
+                        About Us
+                    </Link>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
-                  {isSignedIn ? (
-                    <UserButton afterSignOutUrl="/" />
-                  ) : (
-                    <>
-                      <SignInButton mode="modal">
+                        
+                    <SignInButton mode="modal">
                         <button className="px-6 md:py-2 text-nexafit-footer hover:text-nexafit-lightGreen">
                             Sign in
                         </button>
-                      </SignInButton>
-                      <SignUpButton mode="modal">
+                    </SignInButton>
+                    <SignUpButton mode="modal">
                         <button className="px-6 md:py-2 bg-nexafit-lightGreen text-nexafit-footer rounded-full hover:bg-nexafit-green hover:text-nexafit-lightGreen transition-colors">
                             Sign up
                         </button>
-                      </SignUpButton>
-                    </>
-                  )}
+                    </SignUpButton>
                 </div>
             </div>
         </div>
