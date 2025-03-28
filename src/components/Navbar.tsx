@@ -57,7 +57,7 @@ const Navbar = () => {
     <div className="relative z-50" ref={dropdownRef}> 
       {/* Container with padding applied to top bar only */}
       <div className="px-4">
-        {/* Top bar - this maintains constant height */}
+        {/* Top bar */}
         <div
           className={`
             flex justify-between items-center py-2 px-3
@@ -78,6 +78,7 @@ const Navbar = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Dropdown - positioned fixed to overlay all content */}
       <div
         className={`
@@ -130,6 +131,61 @@ const Navbar = () => {
                 )}
               </div>
           </div>
+=======
+        {/* Dropdown */}
+        <div
+          className={`
+            bg-nexafit-accent
+            ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
+            py-2 md:py-4 px-6 sm:px-10
+            transition-all duration-500 ease-in-out shadow-lg
+            transform origin-top
+            ${isOpen 
+              ? 'opacity-100 visible translate-y-0' 
+              : 'opacity-0 invisible -translate-y-6'}
+            animate-slide-down
+          `}
+          style={{
+            transformOrigin: 'top center',
+            animation: isOpen ? 'slideDown 0.5s ease forwards' : 'none'
+          }}
+        >
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
+                <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
+                  <Link 
+                    to="/calorie-tracker" 
+                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                  >
+                    Calorie Tracker
+                  </Link>
+                  <Link 
+                    to="/meal-planner" 
+                    className="text-nexafit-footer text-sm sm:text-base hover:text-white/80 font-medium text-center sm:text-left"
+                  >
+                    Meal Planner
+                  </Link>
+                </div>
+                <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
+                  {isSignedIn ? (
+                    <UserButton afterSignOutUrl="/" />
+                  ) : (
+                    <>
+                      <SignInButton mode="modal">
+                        <button className="px-6 md:py-2 text-gray-600 hover:text-gray-800">
+                            Sign in
+                        </button>
+                      </SignInButton>
+                      <SignUpButton mode="modal">
+                        <button className="px-6 md:py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
+                            Sign up
+                        </button>
+                      </SignUpButton>
+                    </>
+                  )}
+                </div>
+            </div>
+        </div>
+>>>>>>> parent of 97e00f9 (Fix: Navbar layout and animation)
       </div>
     </div>
   );
