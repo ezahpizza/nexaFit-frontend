@@ -32,8 +32,8 @@ const Home = () => {
       <BackgroundElements />
       <Navbar />
       
-      <section className={`w-full px-4 pt-4 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <HeaderImage shrinkToHeight="h-[25vh]" slideUp={true} />
+      <section className={`w-full px-4 pt-2 transition-opacity duration-500 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <HeaderImage shrinkToHeight="h-[65vh]" slideUp={true} />
       </section>
       
       <section className={`px-8 sm:px-16 md:px-24 lg:px-32 -mt-16 sm:-mt-20 md:-mt-24 relative z-10 transition-opacity duration-500 ease-in-out delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>

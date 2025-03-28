@@ -21,7 +21,7 @@ const FeatureOverlay = ({ username }: FeatureOverlayProps) => {
         </div>
 
         {/* Vertical divider */}
-        <div className="hidden md:block w-px bg-nexafit-footer self-stretch mx-1"></div>
+        <div className="hidden md:block w-0.5 bg-nexafit-footer self-stretch mx-1 my-4"></div>
 
         {/* Right side - Quick links */}
         <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col space-y-6">

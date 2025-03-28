@@ -30,7 +30,7 @@ const HeaderImage = ({ shrinkToHeight = '35vh', slideUp = false }: HeaderImagePr
       `}
     >
       <img 
-        src="/lovable-uploads/9e96c0fb-1b34-49b5-95ec-afa5f645eec1.png" 
+        src="/loader-test.webp" 
         alt="NexaFit header" 
         className="w-full h-full object-cover object-center"
       />
