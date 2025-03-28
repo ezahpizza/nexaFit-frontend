@@ -7,6 +7,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Home from "./pages/Home";
+import MealPlanner from "./pages/MealPlanner";
+import CaloriePredictor from "./pages/CaloriePredictor"
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -33,12 +35,12 @@ const App = () => (
             } />
             <Route path="/calorie-tracker" element={
               <ProtectedRoute>
-                <NotFound />
+                <CaloriePredictor />
               </ProtectedRoute>
             } />
             <Route path="/meal-planner" element={
               <ProtectedRoute>
-                <NotFound />
+                <MealPlanner />
               </ProtectedRoute>
             } />
             <Route path="/contact" element={<NotFound />} />
