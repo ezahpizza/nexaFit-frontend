@@ -30,14 +30,24 @@ const config: Config = {
                         opacity: '0.6' 
                     }
                 },
-                'slide-in-right': {
+                'text-slide-in-left': {
                     '0%': { 
-                        transform: 'translateX(100%) skewX(-20deg)', 
+                        transform: 'translateX(-100%)', 
                         opacity: '0' 
                     },
                     '100%': { 
-                        transform: 'translateX(0) skewX(-20deg)', 
-                        opacity: '0.8' 
+                        transform: 'translateX(0)', 
+                        opacity: '1' 
+                    }
+                },
+                'slide-in-right': {
+                    '0%': { 
+                        transform: 'translateX(100%)', 
+                        opacity: '0' 
+                    },
+                    '100%': { 
+                        transform: 'translateX(0)', 
+                        opacity: '1' 
                     }
                 },
                 'accordion-down': {
@@ -67,7 +77,8 @@ const config: Config = {
             },
             animation: {
                 'slide-in-left': 'slide-in-left 1s ease-out forwards',
-                'slide-in-right': 'slide-in-right 1s ease-out forwards',
+                'text-slide-in-left': 'text-slide-in-left 2.2s ease-out forwards',
+                'slide-in-right': 'slide-in-right 2.2s ease-out forwards',
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 'fade-in': 'fade-in 0.6s ease-out',
