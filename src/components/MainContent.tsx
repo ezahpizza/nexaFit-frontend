@@ -55,11 +55,11 @@ return (
                 <div className="w-1/2 flex flex-col justify-center gap-2 py-4 md:pt-16 pt-36">
                     <div className="z-10 self-start"
                         style={{ transform: 'skewX(-20deg)' }}>
-                        <StatCard number="2K+" text="Lorem ipsum" />
+                        <StatCard number="500+" text="Happy clients" />
                     </div>
                     <div className="z-20 self-end"
                         style={{ transform: 'skewX(-20deg)' }}>
-                        <StatCard number="2K+" text="Lorem ipsum" />
+                        <StatCard number="20+" text="Nutritionists and trainers on call" />
                     </div>
 
                 </div>

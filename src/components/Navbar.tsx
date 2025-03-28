@@ -116,12 +116,12 @@ const Navbar = () => {
                   ) : (
                     <>
                       <SignInButton mode="modal">
-                        <button className="px-6 md:py-2 text-gray-600 hover:text-gray-800">
+                        <button className="px-6 md:py-2 text-nexafit-footer hover:text-nexafit-lightGreen">
                             Sign in
                         </button>
                       </SignInButton>
                       <SignUpButton mode="modal">
-                        <button className="px-6 md:py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
+                        <button className="px-6 md:py-2 bg-nexafit-lightGreen text-nexafit-footer rounded-full hover:bg-nexafit-green hover:text-nexafit-lightGreen transition-colors">
                             Sign up
                         </button>
                       </SignUpButton>
