@@ -78,7 +78,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
         {images.map((image, index) => (
           <div 
             key={index} 
-            className="min-w-full h-72 flex-shrink-0 snap-start"
+            className="max-w-216 h-72 flex-shrink-0 snap-start"
           >
             <img 
               src={image} 

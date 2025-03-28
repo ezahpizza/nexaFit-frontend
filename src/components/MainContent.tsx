@@ -36,19 +36,20 @@ return (
                 <div className="w-1/2 flex flex-col items-center py-4 space-y-4">
                     <div className="w-48 h-48 rounded-lg overflow-hidden shadow-lg">
                         <img 
-                            src="/loader-test.webp" 
-                            alt="NexaFit header" 
+                            src="/hero-image.webp" 
+                            alt="NexaFit hero" 
                             className="relative z-10 w-full h-full object-cover object-center"
                         />
                     </div>
 
                     <div className="w-48 h-12 rounded-lg overflow-hidden shadow-lg">
                         <img 
-                            src="/loader-test.webp" 
-                            alt="NexaFit header" 
+                            src="/nexaFit_pixel_font.gif" 
+                            alt="NexaFit animated logo" 
                             className="relative z-10 w-full h-full object-cover object-center"
                         />
                     </div>
+
                 </div>
 
                 <div className="w-1/2 flex flex-col justify-center gap-2 py-4 md:pt-16 pt-36">

@@ -4,9 +4,9 @@ import { ArrowUpRight } from 'lucide-react';
 
 const SecondaryContent = () => {
   const carouselImages = [
-    "/loader-test.webp",
-    "/loader-test.webp",
-    "/loader-test.webp"
+    "/carousel-img-1.webp",
+    "/carousel-img-1.webp",
+    "/carousel-img-1.webp"
   ];
 
   return (
