@@ -1,16 +1,22 @@
+
 import { useAuth } from '@clerk/clerk-react';
 import { Navigate } from 'react-router-dom';
+import { ReactNode } from 'react';
 
-export default function ProtectedRoute({ children }) {
-    const { isSignedIn, isLoaded } = useAuth();
+interface ProtectedRouteProps {
+  children: ReactNode;
+}
 
-    if (!isLoaded) {
-        return <div>Loading...</div>;
-    }
+export default function ProtectedRoute({ children }: ProtectedRouteProps) {
+  const { isSignedIn, isLoaded } = useAuth();
 
-    if (!isSignedIn) {
-        return <Navigate to="/" />;
-    }
+  if (!isLoaded) {
+    return <div className="flex justify-center items-center min-h-screen">Loading...</div>;
+  }
 
-    return <>{children}</>;
+  if (!isSignedIn) {
+    return <Navigate to="/" />;
+  }
+
+  return <>{children}</>;
 }
