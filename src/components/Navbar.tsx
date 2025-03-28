@@ -82,7 +82,7 @@ const Navbar = () => {
           className={`
             bg-nexafit-accent
             ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
-            py-4 px-6 sm:px-10
+            py-2 md:py-4 px-6 sm:px-10
             transition-all duration-500 ease-in-out shadow-lg
             transform origin-top
             ${isOpen 
@@ -116,12 +116,12 @@ const Navbar = () => {
                   ) : (
                     <>
                       <SignInButton mode="modal">
-                        <button className="px-6 py-2 text-gray-600 hover:text-gray-800">
+                        <button className="px-6 md:py-2 text-gray-600 hover:text-gray-800">
                             Sign in
                         </button>
                       </SignInButton>
                       <SignUpButton mode="modal">
-                        <button className="px-6 py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
+                        <button className="px-6 md:py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
                             Sign up
                         </button>
                       </SignUpButton>

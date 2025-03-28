@@ -1,4 +1,6 @@
 import ImageCarousel from './ImageCarousel';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 
 const SecondaryContent = () => {
   const carouselImages = [
@@ -13,15 +15,20 @@ const SecondaryContent = () => {
         <div className="md:w-1/2 md:pr-8">
           <h2 className="text-3xl text-nexafit-footer font-bold mb-6 text-gray-800">Transform Your Nutrition</h2>
           <p className="text-lg text-nexafit-footer mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat.
+              We're understand that the one-size-fits-all health plans are little more than empty wellness promises. We push limits, break molds, and call you into your power. No fluff. No excuses. Just raw, tailored support that hits where it matters.  This is your rebellion against your own sense of mediocrity — and we're right there with you.
           </p>
-          <div className="bg-nexafit-accent w-full max-w-md rounded-lg flex items-center justify-center mb-8 md:mb-0">
+          <div className="bg-nexafit-accent w-full max-w-md rounded-xl flex items-center justify-center mb-8 md:mb-0">
             <div className="p-8 text-nexafit-footer">
-              <h3 className="text-2xl mb-2 font-black">Start Today</h3>
-              <p className="font-medium">Create your personalized meal plan in just a few clicks</p>
+                <h3 className="text-2xl mb-2 font-black">Start Today</h3>
+                <Link
+                    to="/meal-planner"
+                    className="flex justify-between items-center group"
+                  >
+                    <div>
+                      <h3 className="text-xl font-medium">Create your personalized meal plan in just a few clicks</h3>
+                    </div>
+                    <ArrowUpRight className="h-20 w-20 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </Link>
             </div>
           </div>
         </div>

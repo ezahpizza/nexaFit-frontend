@@ -30,19 +30,11 @@ const HeaderImage = ({ shrinkToHeight = '35vh', slideUp = false }: HeaderImagePr
       `}
     >
       <img 
-        src="/header-image.webp" 
+        src="/header-image-home.webp" 
         alt="NexaFit header" 
         className="w-full h-full object-cover object-center"
       />
       
-      <div
-        className={`
-          absolute left-14 bottom-14 text-white text-4xl font-bold z-10
-          origin-bottom-left 
-        `}
-      >
-        <h1 className="tracking-tight">nexaFit</h1>
-      </div>
     </div>
   );
 };

@@ -131,11 +131,12 @@ const config: Config = {
                     ring: 'hsl(var(--sidebar-ring))'
                 },
                 nexafit: {
-                    background: '#E5D4B6',
+                    background: '#EDEDED',
                     navbar: '#F44E1C',
                     footer: '#1C223A',
                     green: '#3E6868',
-                    accent: '#FC3E57'
+                    accent: '#FC3E57',
+                    lightGreen: '#A0E8C5'
                 }
             },
             borderRadius: {
