@@ -36,9 +36,9 @@ const Home = () => {
         <h2 className="text-2xl font-medium mb-4">Featured Content</h2>
         <ImageCarousel 
           images={[
-            "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1470&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1632&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=1374&auto=format&fit=crop"
+            "/loader-test.webp",
+            "/loader-test.webp",
+            "/loader-test.webp"
           ]} 
         />
       </section>
