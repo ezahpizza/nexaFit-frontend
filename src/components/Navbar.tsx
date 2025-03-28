@@ -1,7 +1,7 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SignInButton, SignUpButton } from '@clerk/clerk-react';
-
+import { SignInButton, SignUpButton, UserButton, useAuth } from '@clerk/clerk-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isAnimatingClose, setIsAnimatingClose] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { isSignedIn } = useAuth();
 
   const toggleDropdown = () => {
     if (!isOpen) {
@@ -54,7 +55,6 @@ const Navbar = () => {
 
   return (
     <div className="relative z-50 py-2" ref={dropdownRef}> 
-    {/* /sm:mt-6 */}
       {/* Container with padding applied to both sections */}
       <div className="px-4">
         {/* Top bar */}
@@ -82,13 +82,18 @@ const Navbar = () => {
           className={`
             bg-nexafit-accent
             ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
-            py-4 px-4 sm:px-8
+            py-4 px-6 sm:px-10
             transition-all duration-500 ease-in-out shadow-lg
             transform origin-top
             ${isOpen 
               ? 'opacity-100 visible translate-y-0' 
               : 'opacity-0 invisible -translate-y-6'}
+            animate-slide-down
           `}
+          style={{
+            transformOrigin: 'top center',
+            animation: isOpen ? 'slideDown 0.5s ease forwards' : 'none'
+          }}
         >
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
                 <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0 w-full sm:w-auto">
@@ -106,16 +111,22 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0 w-full sm:w-auto sm:ml-auto">
-                    <SignInButton mode="modal">
+                  {isSignedIn ? (
+                    <UserButton afterSignOutUrl="/" />
+                  ) : (
+                    <>
+                      <SignInButton mode="modal">
                         <button className="px-6 py-2 text-gray-600 hover:text-gray-800">
                             Sign in
                         </button>
-                    </SignInButton>
-                    <SignUpButton mode="modal">
+                      </SignInButton>
+                      <SignUpButton mode="modal">
                         <button className="px-6 py-2 bg-pink-200 text-gray-800 rounded-full hover:bg-pink-300 transition-colors">
                             Sign up
                         </button>
-                    </SignUpButton>
+                      </SignUpButton>
+                    </>
+                  )}
                 </div>
             </div>
         </div>

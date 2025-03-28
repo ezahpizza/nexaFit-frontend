@@ -11,14 +11,18 @@ import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
-const CLERK_PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+// Make sure to use the env variable and provide a fallback for development
+const CLERK_PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY || 'pk_test_Y2xlcmsuYXBwLmRldi1zYWN1by5sY2wtZGVtby0xNDEuMzguMS4xLjkxMTYxLjE';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
+      <ClerkProvider 
+        publishableKey={CLERK_PUBLISHABLE_KEY}
+        clerkJSVersion="5.56.0-snapshot.v20250312225817"
+      >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
