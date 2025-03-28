@@ -57,7 +57,7 @@ const Navbar = () => {
     <div className="relative z-50 py-2" ref={dropdownRef}> 
       {/* Container with padding applied to both sections */}
       <div className="px-4">
-        {/* Top bar */}
+        {/* Top bar - this maintains constant height */}
         <div
           className={`
             flex justify-between items-center py-2 px-3
@@ -77,17 +77,17 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Dropdown */}
+        {/* Dropdown - positioned absolutely to overlay content */}
         <div
           className={`
-            bg-nexafit-accent
+            absolute left-4 right-4 bg-nexafit-accent
             ${isOpen || isAnimatingClose ? 'rounded-b-xl' : 'rounded-xl'}
             py-2 md:py-4 px-6 sm:px-10
             transition-all duration-500 ease-in-out shadow-lg
             transform origin-top
             ${isOpen 
               ? 'opacity-100 visible translate-y-0' 
-              : 'opacity-0 invisible -translate-y-6'}
+              : 'opacity-0 invisible -translate-y-6 pointer-events-none'}
             animate-slide-down
           `}
           style={{
